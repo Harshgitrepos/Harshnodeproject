@@ -5,7 +5,6 @@ const auth = require('../middleware/auth');
 const blogowner = require('../middleware/blogowner');
 const jwt = require('jsonwebtoken');
 const config = require('config');
-const YAML = require('yaml');
 const {Blog} = require('../models/blogs');
 const {Author} = require('../models/authors');
 
@@ -35,7 +34,7 @@ router.post('/',[auth],async(req,res)=>{
     });
 
 router.get('/',[auth], async(req,res)=>{
-        let a = YAML.stringify(req.query);
+        let a = JSON.stringify(req.query);
         console.log(a.length);
     try{
         if(a.length>4)
