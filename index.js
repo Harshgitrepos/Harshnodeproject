@@ -4,7 +4,6 @@ const app = express();
 app.use(express.json());
 const config = require('config');
 const jwt=require('jsonwebtoken');
-const YAML = require('yaml');
 const authors = require('./routes/authors');
 app.use('/authors',authors);
 const blogs = require('./routes/blogs');
