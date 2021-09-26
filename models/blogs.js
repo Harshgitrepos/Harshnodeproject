@@ -24,10 +24,6 @@ const Blog = mongoose.model('Blog', new mongoose.Schema({
         type : String,
         required: true,
         alias : 'cat',
-        subcategory : {
-            type:[String],
-            alias : 'scat'
-        },
         validate : {
             validator: function(v){
             return v.length > 0;
@@ -36,6 +32,10 @@ const Blog = mongoose.model('Blog', new mongoose.Schema({
     }
   
     },
+     subcategory : {
+            type:[String],
+            alias : 'scat'
+        },
     deletedAt : {
         type : Date,   
     },
