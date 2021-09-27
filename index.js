@@ -2,8 +2,12 @@ const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 app.use(express.json());
+
+// 1. imports config and jwt is not needed here as it is not used.
 const config = require('config');
-const jwt=require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
+
+// 2. Keep all imports together to have a better readability. 
 const authors = require('./routes/authors');
 app.use('/authors',authors);
 const blogs = require('./routes/blogs');
@@ -23,6 +27,7 @@ const auth = require('./middleware/auth');
 // });
 
 
+// Use process.exit() to close the server in case of mongodb err and the server.
 mongoose.connect('mongodb://localhost/HarshNodeProjectTestEnv1')
 .then(()=>console.log('Connected to MongoDB Test Environment..'))
 .catch(err=>console.error('Could not connect to mongo',err))
